@@ -4,7 +4,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-bot = fluxer.Bot(command_prefix="!", intents=fluxer.Intents.default())
+intents = fluxer.Intents.default()
+intents.message_content = True
+bot = fluxer.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
